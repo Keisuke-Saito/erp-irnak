@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateBusinessDivMstsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('business_div_msts', function (Blueprint $table) {
+            $table->string('uuid', 36)->primary();
+            $table->smallInteger('business_div_id')->unique()->unsigned();
+            $table->string('name')->unique();
+            $table->text('description')->nullable($value = true);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('business_div_msts');
+    }
+}

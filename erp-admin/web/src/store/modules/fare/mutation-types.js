@@ -1,0 +1,7 @@
+export const FETCH_FARE_LIST = 'FETCH_FARE_LIST'
+export const FETCH_DETAIL_LIST = 'FETCH_DETAIL_LIST'
+export const DOWNLOAD = 'DOWNLOAD'
+export const CSV_ALL_CHECK = 'CSV_ALL_CHECK'
+export const UPDATE_FARE = 'UPDATE_FARE'
+export const DELETE_FARE = 'DELETE_FARE'
+export const CHANGE_STATUS = 'CHANGE_STATUS'
