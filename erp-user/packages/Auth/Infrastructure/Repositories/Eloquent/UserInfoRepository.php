@@ -61,6 +61,11 @@ class UserInfoRepository implements UserInfoRepositoryInterface
      */
     public function createUserInfo(CreateUserInfoModel $user): void
     {
+        // ワンタイムトークンのトークンタイプ変更
+        $onetimeToken = DBA\OnetimeToken::where('erp_id', $user->getErpId()->getValue())->first();
+        $onetimeToken->type_div = 0;
+        $onetimeToken->save();
+        // ユーザー情報を登録
         $user = new DBA\User($user->toUser());
         $user->save();
     }
