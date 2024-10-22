@@ -19,7 +19,8 @@ class Kernel extends ConsoleKernel
         Commands\MakeModelCommand::class,
         Commands\MakeServiceCommand::class,
         // バッチ
-        Batch\Example\MessageBatch::class
+        Batch\Example\MessageBatch::class,
+        Batch\Fare\ConfirmBatch::class
     ];
 
     /**
@@ -33,6 +34,10 @@ class Kernel extends ConsoleKernel
         // 毎日深夜１２時に実行
         $schedule->command('batch:message_batch')
                 ->daily();
+
+        // 毎月１日１３時に実行
+        $schedule->command('batch:confirm')
+                ->monthly(1, '13:00');
     }
 
     /**
